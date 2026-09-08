@@ -74,56 +74,6 @@ section h2 {
     padding-bottom: 4px;
     margin-top: 0;
     margin-bottom: 16px;
-    /* Separación con el input inferior */
-}
-
-/* ==========================================
-   SECCIÓN DE BÚSQUEDA (POKÉDEX)
-   ========================================== */
-section:has(input) {
-    display: block;
-    /* Mantiene un flujo vertical estándar */
-}
-
-/* Fuerza a que el Pokémon buscado se muestre centrado en una nueva línea */
-section:has(input)>article {
-    clear: both;
-    margin: 16px auto 0 auto;
-}
-
-/* Input y botón en la misma fila debajo de "Buscar Pokémon" */
-section:has(input)>input[type="text"] {
-    display: inline-block;
-    margin-top: 8px;
-    /* Margen superior respecto al título h2 */
-    margin-bottom: 16px;
-    margin-right: 8px;
-    padding: 10px 14px;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    width: calc(100% - 130px);
-    max-width: 300px;
-    outline: none;
-    transition: border-color 0.2s ease;
-    background-color: var(--white);
-    color: var(--text-color);
-}
-
-section:has(input)>input[type="text"]:focus {
-    border-color: var(--poke-blue);
-}
-
-section:has(input)>button {
-    display: inline-block;
-    vertical-align: middle;
-    background-color: var(--poke-red);
-}
-
-/* Fuerza a que el Pokémon buscado se muestre en una nueva línea inferior */
-section:has(input)>article {
-    clear: both;
-    margin-top: 16px;
 }
 
 /* Mensajes de error y estado */
@@ -180,16 +130,98 @@ article button:nth-of-type(3) {
 }
 
 /* ==========================================
-   SECCIÓN MI EQUIPO (MULTIPLE TARJETAS)
+   SECCIÓN DE BÚSQUEDA (POKÉDEX)
    ========================================== */
-section:not(:has(input)) {
+section:has(input) {
+    display: block;
+}
+
+section:has(input)>input[type="text"] {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    margin-right: 8px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    width: calc(100% - 130px);
+    max-width: 300px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+section:has(input)>input[type="text"]:focus {
+    border-color: var(--poke-blue);
+}
+
+section:has(input)>button {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: var(--poke-red);
+}
+
+section:has(input)>article {
+    clear: both;
+    margin: 16px auto 0 auto;
+}
+
+/* ==========================================
+   SECCIÓN MI EQUIPO (FLEXBOX)
+   ========================================== */
+section:not(:has(input)):not(.listaPokemones) {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-section:not(:has(input))>h2,
-section:not(:has(input))>p {
+section:not(:has(input)):not(.listaPokemones)>h2,
+section:not(:has(input)):not(.listaPokemones)>p {
+    width: 100%;
+}
+
+/* ==========================================
+   SECCIÓN DE FILTRADO Y LISTA (GRID 4 COLUMNAS)
+   ========================================== */
+.listaPokemones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.listaPokemones>h2,
+.listaPokemones>div,
+.listaPokemones>p {
+    grid-column: 1 / -1;
+}
+
+/* Alineación de los desplegables de selección */
+.listaPokemones>div {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.listaPokemones select {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.listaPokemones select:focus {
+    border-color: var(--poke-blue);
+}
+
+.listaPokemones article {
     width: 100%;
 }
 
@@ -238,9 +270,17 @@ article p {
     color: var(--text-muted);
 }
 
-/* Adaptación responsive para pantallas pequeñas */
+/* ==========================================
+   ADAPTACIÓN RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .listaPokemones {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 600px) {
-    section:not(:has(input)) {
+    section:not(:has(input)):not(.listaPokemones) {
         justify-content: center;
     }
 
@@ -252,5 +292,11 @@ article p {
 
     article {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .listaPokemones {
+        grid-template-columns: 1fr;
     }
 }

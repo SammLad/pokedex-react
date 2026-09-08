@@ -6,6 +6,20 @@
       "nivel": 3,
       "favorito": true,
       "id": "mIHniE5BRJs"
+    },
+    {
+      "nombre": "charizard",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "Sqd8e7PPLTM"
+    },
+    {
+      "nombre": "eevee",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "VrAj0rUZemM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

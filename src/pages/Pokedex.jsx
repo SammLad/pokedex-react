@@ -45,6 +45,7 @@ function Pokedex({ onPokemonAgregado }) {
         <section>
             <h2>Buscar Pokémon</h2>
 
+
             <input
                 type="text"
                 value={busqueda}

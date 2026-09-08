@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Pokedex from "./pages/Pokedex";
 import MiEquipo from "./pages/MiEquipo";
+import Filtrado from "./pages/filtrado";
 import "./styles.css";
 
 function App() {
@@ -9,7 +10,11 @@ function App() {
 
   return (
     <main>
+
       <h1>Pokédex React</h1>
+      <hr />
+      <Filtrado />
+      <hr />
 
       <Pokedex
         onPokemonAgregado={() =>
