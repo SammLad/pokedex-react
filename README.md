@@ -1,16 +1,40 @@
-# React + Vite
+# Pokédex App - Consulta de API y CRUD en React
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## 🎯 Objetivo del Proyecto
+Esta aplicación web desarrollada en React permite explorar información sobre Pokémon consumiendo una API externa, además de aplicar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una base de datos local simulada.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tecnologías Utilizadas
+* **React** (a través de Vite)
+* **JavaScript** (ES6+)
+* **HTML5 / CSS3**
+* **PokéAPI** (API externa)
+* **JSON Server** (API REST local)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌐 Consumo de APIs
 
-## Expanding the Oxlint configuration
+### PokéAPI
+Funciona como la **API externa de consulta**. Permite obtener datos oficiales en tiempo real sobre los Pokémon, como sus estadísticas, tipos, habilidades e imágenes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### JSON Server
+Actúa como la **API local de práctica**. Permite simular un backend completo con una base de datos en un archivo JSON (`db.json`) para realizar pruebas de manipulación de datos sin afectar a un servidor real.
+
+---
+
+## 🔄 Explicación de Métodos HTTP
+
+* **GET**: Recupera información del servidor o API externa. *(Ejemplo: Obtener la lista general o el detalle de un Pokémon)*.
+* **POST**: Envía nuevos datos al servidor para crear un recurso. *(Ejemplo: Registrar un nuevo Pokémon en la base de datos local)*.
+* **PATCH**: Actualiza parcialmente un recurso existente sin sobrescribirlo por completo. *(Ejemplo: Modificar el nombre o nivel de un Pokémon guardado)*.
+* **DELETE**: Elimina un recurso específico del servidor. *(Ejemplo: Borrar un Pokémon de la base de datos local)*.
+
+---
+
+## 🚀 Instrucciones de Instalación y Ejecución
+
+1. **Instalar dependencias del proyecto:**
+   ```bash
+   npm install

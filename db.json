@@ -6,13 +6,6 @@
       "nivel": 3,
       "favorito": true,
       "id": "mIHniE5BRJs"
-    },
-    {
-      "nombre": "krabby",
-      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png",
-      "nivel": 1,
-      "favorito": false,
-      "id": "bu90kRXmAgc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

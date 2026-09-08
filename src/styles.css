@@ -1,0 +1,256 @@
+/* ==========================================
+   VARIABLES EN ROOT (Única fuente de colores)
+   ========================================== */
+:root {
+    --poke-red: #e53935;
+    --poke-red-dark: #c62828;
+    --poke-yellow: #ffca28;
+    --poke-blue: #29b6f6;
+    --poke-green: #4caf50;
+    --poke-dark: #212121;
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --card-bg-alt: #fafafa;
+    --text-color: #37474f;
+    --text-muted: #616161;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+    --border-radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================
+   ESTILOS GENERALES Y ESTRUCTURA
+   ========================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main>h1 {
+    text-align: center;
+    color: var(--white);
+    background-color: var(--poke-red);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--border-color);
+    margin: 40px 0;
+}
+
+/* ==========================================
+   SECCIONES Y TÍTULOS
+   ========================================== */
+section {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+section h2 {
+    display: block;
+    color: var(--poke-dark);
+    border-bottom: 3px solid var(--poke-yellow);
+    padding-bottom: 4px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    /* Separación con el input inferior */
+}
+
+/* ==========================================
+   SECCIÓN DE BÚSQUEDA (POKÉDEX)
+   ========================================== */
+section:has(input) {
+    display: block;
+    /* Mantiene un flujo vertical estándar */
+}
+
+/* Fuerza a que el Pokémon buscado se muestre centrado en una nueva línea */
+section:has(input)>article {
+    clear: both;
+    margin: 16px auto 0 auto;
+}
+
+/* Input y botón en la misma fila debajo de "Buscar Pokémon" */
+section:has(input)>input[type="text"] {
+    display: inline-block;
+    margin-top: 8px;
+    /* Margen superior respecto al título h2 */
+    margin-bottom: 16px;
+    margin-right: 8px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    width: calc(100% - 130px);
+    max-width: 300px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+section:has(input)>input[type="text"]:focus {
+    border-color: var(--poke-blue);
+}
+
+section:has(input)>button {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: var(--poke-red);
+}
+
+/* Fuerza a que el Pokémon buscado se muestre en una nueva línea inferior */
+section:has(input)>article {
+    clear: both;
+    margin-top: 16px;
+}
+
+/* Mensajes de error y estado */
+p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+section>p {
+    color: var(--poke-red-dark);
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+button {
+    background-color: var(--poke-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+    margin: 4px;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Colores de acción dentro de las tarjetas */
+article button:nth-of-type(1) {
+    background-color: var(--poke-green);
+    color: var(--white);
+}
+
+article button:nth-of-type(2) {
+    background-color: var(--poke-yellow);
+    color: var(--poke-dark);
+}
+
+article button:nth-of-type(3) {
+    background-color: var(--poke-red);
+    color: var(--white);
+}
+
+/* ==========================================
+   SECCIÓN MI EQUIPO (MULTIPLE TARJETAS)
+   ========================================== */
+section:not(:has(input)) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+section:not(:has(input))>h2,
+section:not(:has(input))>p {
+    width: 100%;
+}
+
+/* ==========================================
+   TARJETAS DE POKÉMON (CARD)
+   ========================================== */
+article {
+    background-color: var(--card-bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    text-align: center;
+    width: 220px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+    box-sizing: border-box;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+article h2,
+article h3 {
+    margin: 8px 0;
+    text-transform: capitalize;
+    color: var(--poke-dark);
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+article img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px dashed var(--border-color);
+}
+
+article p {
+    margin: 6px 0;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* Adaptación responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    section:not(:has(input)) {
+        justify-content: center;
+    }
+
+    section:has(input)>input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    article {
+        width: 100%;
+    }
+}
